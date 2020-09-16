@@ -1,0 +1,14 @@
+{
+    "users": [{
+        "id": 0,
+        "username": "belindo",
+        "name": "ga",
+        "surname": "bibbo"
+    }],
+    "products": [{
+        "id": 0,
+        "title": "megaman",
+        "desc": "megaman desc",
+        "year": "megaman year"
+    }]
+}
