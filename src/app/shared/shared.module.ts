@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextComponent } from './input-text/input-text.component';
-import { GamePreviewComponent } from './game-preview/game-preview.component'
+import { GamePreviewComponent } from './game-preview/game-preview.component';
+import { CustomizeButtonComponent } from './customize-button/customize-button/customize-item.component'
 @NgModule({
   declarations: [
     InputTextComponent,
-    GamePreviewComponent
+    GamePreviewComponent,
+    CustomizeButtonComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { GamePreviewComponent } from './game-preview/game-preview.component'
     FormsModule,
     ReactiveFormsModule,
     InputTextComponent,
-    GamePreviewComponent
+    GamePreviewComponent,
+    CustomizeButtonComponent
   ]
 })
 export class SharedModule { }

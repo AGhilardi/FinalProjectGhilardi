@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { retrieveAllGames } from './redux/games/games.actions';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FinalGhilardi';
+  
+  constructor(private store: Store) {
+
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(retrieveAllGames());
+  }
+
+
 }

@@ -11,7 +11,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './redux';
 import { GamesEffect } from './redux/games/games.effects';
 import { RouterEffects } from './redux/router/router.effects';
-import {UsersEffect} from './redux/users/users.effects'
+import {UsersEffect} from './redux/users/users.effects';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {UsersEffect} from './redux/users/users.effects'
       logOnly: environment.production, // Restrict extension to log-only mode
     }),
     StoreRouterConnectingModule.forRoot(),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

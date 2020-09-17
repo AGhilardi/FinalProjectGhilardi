@@ -7,10 +7,26 @@
         "password": "veline",
         "email": "gabibbo@striscia.it"
     }],
-    "products": [{
-        "id": 0,
-        "title": "megaman",
-        "desc": "megaman desc",
-        "year": "megaman year"
-    }]
+    "games": [{
+            "id": 0,
+            "title": "megaman",
+            "desc": "megaman desc",
+            "year": "1543",
+            "img": "../assets/250604_10175_front.jpg"
+        },
+        {
+            "id": 1,
+            "title": "megaman",
+            "desc": "megaman desc",
+            "year": "1543",
+            "img": "../assets/250604_10175_front.jpg"
+        },
+        {
+            "id": 2,
+            "title": "megaman",
+            "desc": "megaman desc",
+            "year": "1543",
+            "img": "../assets/250604_10175_front.jpg"
+        }
+    ]
 }
