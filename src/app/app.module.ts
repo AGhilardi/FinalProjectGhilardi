@@ -11,7 +11,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './redux';
 import { GamesEffect } from './redux/games/games.effects';
 import { RouterEffects } from './redux/router/router.effects';
-
+import {UsersEffect} from './redux/users/users.effects'
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { RouterEffects } from './redux/router/router.effects';
     AppRoutingModule, 
     CoreModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([GamesEffect, RouterEffects]),
+    EffectsModule.forRoot([GamesEffect, RouterEffects,UsersEffect]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode

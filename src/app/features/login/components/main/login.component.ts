@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { User } from 'src/app/core/model/user.interface';
 import { LoginService } from '../../services/login.service';
 
 @Component({
@@ -9,19 +10,22 @@ import { LoginService } from '../../services/login.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-
+  regUser:User;
   constructor(fb: FormBuilder, private loginService: LoginService) {
     this.loginForm = fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      username: ['', [Validators.required,Validators.minLength(3)]],
+      password: ['', Validators.required],
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
+      email: ['',[Validators.required,Validators.email]]
     })
   }
-
+  
   ngOnInit(): void {
   }
 
   doLogin() {
-    this.loginService.executeLogin(this.loginForm.get('username').value);
+    
+    this.loginService.executeLogin(this.loginForm.get('username').value,this.loginForm.get('password').value);
   }
-
-}
+  }

@@ -3,7 +3,9 @@
         "id": 0,
         "username": "belindo",
         "name": "ga",
-        "surname": "bibbo"
+        "surname": "bibbo",
+        "password": "veline",
+        "email": "gabibbo@striscia.it"
     }],
     "products": [{
         "id": 0,

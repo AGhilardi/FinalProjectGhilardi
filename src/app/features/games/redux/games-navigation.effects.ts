@@ -1,7 +1,7 @@
-import { TodosFacadeService } from './../services/todos-facade.service';
+import { GamesFacadeService } from "../service/games-facade.service";
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { goToDetail, goToTodosHome } from './games-navigation.actions';
+import { goToDetail, goToGamesHome } from './games-navigation.actions';
 import { tap } from 'rxjs/operators';
 
 @Injectable()
@@ -10,18 +10,18 @@ export class GamesNavigationEffects {
     goToDetail$ = createEffect(() => this.actions$.pipe(
         ofType(goToDetail),
         tap(action => {
-            this.todosFacadeService.goToDetail(action.id);
+            this.gamesFacadeService.goToDetail(action.id);
         })
     ), { dispatch: false });
 
-    goToTodosHome$ = createEffect(() => this.actions$.pipe(
-        ofType(goToTodosHome),
+    goToGamesHome$ = createEffect(() => this.actions$.pipe(
+        ofType(goToGamesHome),
         tap(() => {
-            this.todosFacadeService.goToTodosHome();
+            this.gamesFacadeService.goToTodosHome();
         })
     ), { dispatch: false });
 
     constructor(private actions$: Actions,
-        private todosFacadeService: TodosFacadeService) {
+        private gamesFacadeService: GamesFacadeService) {
     }
 }

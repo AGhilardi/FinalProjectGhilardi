@@ -1,6 +1,6 @@
 <form [formGroup]="loginForm" (ngSubmit)="doLogin()">
     <app-input-text formControlName="username" [label]="'Username'" class="username-input"></app-input-text>
     <app-input-text formControlName="password" [label]="'Password'" class="password-input"></app-input-text>
-    <app-input-text formControlName="name" [label]="'Password'" class="password-input"></app-input-text>
     <button type="submit" class="login-button">Login</button>
+    <button routerLink="/reg" type="button" name="confirm" class="login-button">Sign up</button>
 </form>
