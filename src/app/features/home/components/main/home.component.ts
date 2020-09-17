@@ -7,7 +7,7 @@ import { getFirstGame, selectGames } from 'src/app/redux/games';
 import { getCurrentUser } from 'src/app/redux/users';
 import { retrieveAllGames } from 'src/app/redux/games/games.actions';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
-
+import { GamesFacadeService } from "../../../games/service/games-facade.service";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  constructor(private store: Store) { 
+  constructor(private store: Store, private service: GamesFacadeService) { 
     this.store.pipe(select(selectGames)).subscribe(games=>
       this.games = games
     )
@@ -59,5 +59,9 @@ export class HomeComponent implements OnInit {
       this.togglePaused();
     }
     this.currentSlide=slideEvent.current;
+    console.log(this.currentSlide)
+  }
+  customize(){
+    this.service.goToEdit(parseInt(this.currentSlide));
   }
 }

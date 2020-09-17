@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextComponent } from './input-text/input-text.component';
 import { GamePreviewComponent } from './game-preview/game-preview.component';
-import { CustomizeButtonComponent } from './customize-button/customize-button/customize-item.component'
+import { CustomizeButtonComponent } from './customize-button/customize-button/customize-item.component';
+import { CustomizeFormComponent } from './customize-form/customize-form.component'
 @NgModule({
   declarations: [
     InputTextComponent,
     GamePreviewComponent,
-    CustomizeButtonComponent
+    CustomizeButtonComponent,
+    CustomizeFormComponent
   ],
   imports: [
     CommonModule,

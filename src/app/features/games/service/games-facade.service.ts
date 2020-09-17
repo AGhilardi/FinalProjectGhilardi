@@ -24,8 +24,8 @@ export class GamesFacadeService {
     
   }
 
-  goToDetail(id: number) {  
-    this.router.navigateByUrl('/games/detail/' + id);
+  goToEdit(id: number) {  
+    this.router.navigateByUrl('/home/edit/' + id);
   }
 
 

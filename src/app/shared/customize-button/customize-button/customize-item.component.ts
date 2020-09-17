@@ -2,9 +2,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Game } from 'src/app/core/model/game.interface';
 
 @Component({
-  selector: 'app-customize-button',
-  templateUrl: './customize-button.component.html',
-  styleUrls: ['./customize-button.component.scss']
+  selector: 'app-customize-item',
+  templateUrl: './customize-item.component.html',
+  styleUrls: ['./customize-item.component.scss']
 })
 export class CustomizeButtonComponent implements OnInit {
 
@@ -15,7 +15,7 @@ export class CustomizeButtonComponent implements OnInit {
   editEvent: EventEmitter<Game> = new EventEmitter();
   ngOnInit(): void {
   }
-  editClick() {
+  addToCart() {
     this.editEvent.emit(this.game);
   }
 }
