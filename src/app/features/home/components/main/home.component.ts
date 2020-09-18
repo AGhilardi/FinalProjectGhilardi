@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { Game } from 'src/app/core/model/game.interface';
 import { map, filter, toArray, switchMap, tap } from 'rxjs/operators';
 import { getFirstGame, selectGames } from 'src/app/redux/games';
@@ -14,10 +14,15 @@ import { GamesFacadeService } from "../../../games/service/games-facade.service"
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  images = ["../assets/250604_10175_front.jpg", "../assets/250604_10175_front.jpg","../assets/250604_10175_front.jpg"];
+  images:string[] = ["../assets/250604_10175_front.jpg", "../assets/250604_10175_front.jpg","../assets/250604_10175_front.jpg"];
   games:Game[] =[];
   id:number;
-  currentSlide
+  image:string;
+  currentSlide;
+  @Output()
+  imageSubmitEvent: EventEmitter<string[]> = new EventEmitter();
+  @Output()
+  idSubmitEvent: EventEmitter<number> = new EventEmitter();
   get user(): Observable<string> {
     return this.store.pipe(
       select(getCurrentUser),
@@ -59,9 +64,13 @@ export class HomeComponent implements OnInit {
       this.togglePaused();
     }
     this.currentSlide=slideEvent.current;
+    this.image=this.images[this.currentSlide];
     console.log(this.currentSlide)
   }
-  customize(){
+  
+  customize(){ 
+    this.service.changeImg(this.image);
     this.service.goToEdit(parseInt(this.currentSlide));
+   
   }
 }

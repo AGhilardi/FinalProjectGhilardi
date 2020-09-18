@@ -1,16 +1,26 @@
-<form [formGroup]="todoForm" (ngSubmit)="confirmChanges()">
-    <app-input-text formControlName="title" [label]="'Titolo'"></app-input-text>
-    <app-input-text formControlName="description" [label]="'Descrizione'"></app-input-text>
-    <div formArrayName="steps">
-        <ng-container *ngIf="stepsArray.length > 0">
-            <div *ngFor="let step of stepsArray; let i=index" [formGroupName]="i">
-                <input type="checkbox" formControlName="done">
-                <app-input-text formControlName="title" [label]="'Titolo Step'"></app-input-text>
-                <button type="button">Rimuovi Step</button>
-            </div>
-        </ng-container>
-        <button (click)="addStepToForm()">Aggiungi Step</button>
+<img [src]=image alt="img">
+<form [formGroup]="gameForm" (ngSubmit)="confirmChanges()">
+    <div>
+        <label for="edition">edition</label>
+        <select id="edition" formControlName="edition">
+        <option value="default">default</option>
+        <option value="goty">goty</option>
+        <option value="gold">gold</option>
+        <option value="deluxe">deluxe</option>
+    </select>
     </div>
+    <div>
+        <input formControlName="seasonPass" type="checkbox" id="seasonpass" name="seasonpass" value="seasonpass">
+        <label for="seasonpass"> season pass</label>
+    </div>
+    <p>Where would you like to recieve your key?<br>
+
+        <input formControlName="keypass" type="radio" id="email" name="keypass" value="email">
+        <label for="email">email  </label>
+        <input formControlName="keypass" type="radio" id="instant" name="keypass" value="instant">
+        <label for="instant">our site</label>
+    </p>
+    <app-input-text formControlName="gift" [label]="'Is it a gift for someone? Enter their email!'"></app-input-text>
     <button (click)="cancel()">Annulla</button>
-    <button type="submit" [disabled]="todoForm.invalid">Conferma</button>
+    <button type="submit" [disabled]="gameForm.invalid">Conferma</button>
 </form>

@@ -5,13 +5,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextComponent } from './input-text/input-text.component';
 import { GamePreviewComponent } from './game-preview/game-preview.component';
 import { CustomizeButtonComponent } from './customize-button/customize-button/customize-item.component';
-import { CustomizeFormComponent } from './customize-form/customize-form.component'
+import { CustomizeFormComponent } from './customize-form/customize-form.component';
+import { FormSelectComponent } from './form-select/form-select.component'
 @NgModule({
   declarations: [
     InputTextComponent,
     GamePreviewComponent,
     CustomizeButtonComponent,
-    CustomizeFormComponent
+    CustomizeFormComponent,
+    FormSelectComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { CustomizeFormComponent } from './customize-form/customize-form.componen
     ReactiveFormsModule,
     InputTextComponent,
     GamePreviewComponent,
-    CustomizeButtonComponent
+    CustomizeButtonComponent,
+    FormSelectComponent
   ]
 })
 export class SharedModule { }
