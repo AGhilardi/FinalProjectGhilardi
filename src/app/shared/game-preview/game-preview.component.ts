@@ -1,5 +1,8 @@
 import { Component, Input, Output, EventEmitter, Injectable, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { removeFromCart } from 'src/app/redux/cart/cart.actions';
+import { gameReducer } from 'src/app/redux/games/games.reducers';
 import { Game } from '../../core/model/game.interface';
 
 @Component({
@@ -11,14 +14,21 @@ export class GamePreviewComponent {
    
   @Input()
   game: Game;
-
+  get gamepass():string{
+    if (this.game.pass===true){
+      return "yes"
+    }
+    else{
+      return "no"
+    }
+  }
   @Output()
-  detailEvent: EventEmitter<void> = new EventEmitter();
+  removeEvent: EventEmitter<void> = new EventEmitter();
 
-  constructor() { }
+  constructor(private store:Store) { }
  
  
-  detailClick() {
-    this.detailEvent.emit();
+  deleteFromCart() {
+    this.removeEvent.emit();
   }
 }

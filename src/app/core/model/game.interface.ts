@@ -5,4 +5,8 @@ export interface Game {
     year:number;
     users: string[];
     img:string;
+    edition:string;
+    pass:boolean;
+    key:string;
+    gift:string;
 }

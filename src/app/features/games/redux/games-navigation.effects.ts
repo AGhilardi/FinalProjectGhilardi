@@ -17,7 +17,7 @@ export class GamesNavigationEffects {
     goToGamesHome$ = createEffect(() => this.actions$.pipe(
         ofType(goToGamesHome),
         tap(() => {
-            this.gamesFacadeService.goToTodosHome();
+            this.gamesFacadeService.goToGamesHome();
         })
     ), { dispatch: false });
 

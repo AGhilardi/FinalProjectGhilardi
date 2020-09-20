@@ -1,5 +1,5 @@
-<img [src]=image alt="img">
-<form [formGroup]="gameForm" (ngSubmit)="confirmChanges()">
+<img [src]="img | async" alt="img">
+<form [formGroup]="gameForm" (ngSubmit)="confirm() ">
     <div>
         <label for="edition">edition</label>
         <select id="edition" formControlName="edition">

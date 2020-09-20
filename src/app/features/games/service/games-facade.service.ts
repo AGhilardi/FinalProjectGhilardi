@@ -8,13 +8,18 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class GamesFacadeService {
-
-  private imgsrc= new BehaviorSubject('img here')
+  private game:Game={id:1,title:"",description:"",year:2,users:[],img:"",edition:"",pass:false,key:"",gift:""};
+  private imgsrc= new BehaviorSubject('img here');
+  private gamesrc=new BehaviorSubject(this.game);
   currentimg= this.imgsrc.asObservable();
+  currentgame= this.gamesrc.asObservable();
   changeImg(img:string){
     this.imgsrc.next(img);
   }
-  constructor(private router: Router, private store: Store) { }
+  changeGame(game:Game){
+    this.gamesrc.next(game);
+  }
+  constructor(private router: Router, private store: Store,) { }
 
   editGame(game: Game) {
     this.store.dispatch(updateGame({game}));
@@ -24,7 +29,7 @@ export class GamesFacadeService {
     this.store.dispatch(postGame({game}));
   }
 
-  goToTodosHome() {
+  goToGamesHome() {
 
     this.router.navigateByUrl('/home  ');
     

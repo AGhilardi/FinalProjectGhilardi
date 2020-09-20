@@ -1,43 +1,53 @@
 {
-  "users": [
-    {
-      "id": 0,
-      "username": "belindo",
-      "name": "ga",
-      "surname": "bibbo",
-      "password": "veline",
-      "email": "gabibbo@striscia.it"
-    },
-    {
-      "username": "LukeSkywa",
-      "password": "LukeSkywa",
-      "name": "LukeSkywa",
-      "surname": "LukeSkywa",
-      "email": "rand@rand.com",
-      "id": 1
-    }
-  ],
-  "games": [
-    {
-      "id": 0,
-      "title": "megaman",
-      "desc": "megaman desc",
-      "year": "1543",
-      "img": "../assets/250604_10175_front.jpg"
-    },
-    {
-      "id": 1,
-      "title": "megaman",
-      "desc": "megaman desc",
-      "year": "1543",
-      "img": "../assets/250604_10175_front.jpg"
-    },
-    {
-      "id": 2,
-      "title": "megaman",
-      "desc": "megaman desc",
-      "year": "1543",
-      "img": "../assets/250604_10175_front.jpg"
-    }
-  ]
+    "users": [{
+            "id": 0,
+            "username": "belindo",
+            "name": "ga",
+            "surname": "bibbo",
+            "password": "veline",
+            "email": "gabibbo@striscia.it"
+        },
+        {
+            "username": "LukeSkywa",
+            "password": "LukeSkywa",
+            "name": "LukeSkywa",
+            "surname": "LukeSkywa",
+            "email": "rand@rand.com",
+            "id": 1
+        }
+    ],
+    "games": [{
+            "id": 0,
+            "title": "megaman",
+            "desc": "megaman desc",
+            "year": "1543",
+            "img": "../assets/250604_10175_front.jpg",
+            "edition": "default",
+            "pass": false,
+            "key": "email",
+            "gift": "no"
+        },
+        {
+            "id": 1,
+            "title": "rayman",
+            "desc": "megaman desc",
+            "year": "1543",
+            "img": "../assets/EQkKCpiXUAE4Ah6.png",
+            "edition": "default",
+            "pass": false,
+            "key": "email",
+            "gift": "no"
+        },
+        {
+            "id": 2,
+            "title": "prince of persia",
+            "desc": "megaman desc",
+            "year": "1543",
+            "img": "../assets/18j3gkpojtix9jpg.jpg",
+            "edition": "default",
+            "pass": false,
+            "key": "email",
+            "gift": "no"
+        }
+    ]
 }

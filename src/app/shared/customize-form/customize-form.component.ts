@@ -1,7 +1,15 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { Router } from '@angular/router';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { last, map, switchMap } from 'rxjs/operators';
 import { Game } from 'src/app/core/model/game.interface';
+import { goToGamesHome } from 'src/app/features/games/redux/games-navigation.actions';
 import { GamesFacadeService } from 'src/app/features/games/service/games-facade.service';
+import { selectLastCart } from 'src/app/redux/cart';
+import { insertInCart } from 'src/app/redux/cart/cart.actions';
+import { getCurrentNavigatedGame, getGameById } from 'src/app/redux/games';
 
 @Component({
   selector: 'app-customize-form',
@@ -9,9 +17,16 @@ import { GamesFacadeService } from 'src/app/features/games/service/games-facade.
   styleUrls: ['./customize-form.component.scss']
 })
 export class CustomizeFormComponent implements OnInit{
-
+  game:Game;
+  lastgame:Game;
   @Input()
-  game: Game;
+  get img(): Observable<string>
+  {
+    return this.store.pipe(
+      select(getGameById,{id:parseInt(this.router.url.slice(-1))}),
+      map(game=> game.img)
+    );
+  };
   @Input()
   image:string;
   @Input()
@@ -23,26 +38,42 @@ export class CustomizeFormComponent implements OnInit{
   undoEvent: EventEmitter<Game> = new EventEmitter();
 
   gameForm: FormGroup;
-
-  constructor(private fb: FormBuilder,private service:GamesFacadeService) {
+  constructor(private fb: FormBuilder,private service:GamesFacadeService,private store:Store,private router:Router) {
     this.gameForm = this.fb.group({
-      id: null,
       edition: ['', Validators.required],
       seasonPass:[''],
       keypass: ['', Validators.required],
       gift: ['',Validators.email],
     });
+      this.store.pipe(
+      select(getGameById,{id:parseInt(this.router.url.slice(-1))}),
+    ).subscribe(game=>this.game=game);
+      this.store.pipe(
+      select(selectLastCart),
+    ).subscribe(lastgame=>this.lastgame=lastgame);
   }
   ngOnInit(): void {
-   this.service.currentimg.subscribe(img=>this.image = img)
-  }
+}
   
   ngOnChanges(changes: SimpleChanges): void {
   }
 
 
-  confirmChanges() {
-    this.formSubmitEvent.emit(this.gameForm.value);
+  confirm() {
+    let game=this.gameForm.value;
+    Object.assign(game,this.game);
+    if (this.lastgame===null)
+    {
+      game.id=0;
+    }
+    else{
+      let incrementalId:number=this.lastgame.id;
+      incrementalId++;
+    game.id=incrementalId;
+    }
+    console.log(game);
+    this.store.dispatch(insertInCart({game}));
+    this.router.navigateByUrl("home");
   }
 
   cancel() {
