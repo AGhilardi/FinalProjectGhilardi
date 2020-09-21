@@ -1,3 +1,4 @@
+<a href="home"><img id="home" [src]="'../../assets/60817.svg'" alt="home"></a>
 <section *ngFor="let game of cart;index as i">
     <img [src]="game.img" alt="game image">
     <p>Titolo: {{game.title}}</p>
@@ -12,4 +13,4 @@
 </section>
 <hr>
 <p>totale:{{total}}</p>
-<button routerLink="checkout/2">Next</button>
+<button (click)="next()">Next</button>

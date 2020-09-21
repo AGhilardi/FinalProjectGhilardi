@@ -6,3 +6,4 @@ export const insertInCart = createAction('[Cart] insert', props<{game: Game}>())
 export const removeFromCart = createAction('[Cart] remove', props<{id: number}>());
 export const retrieveAllCart =  createAction('[Cart] retrieve all');
 export const postCart = createAction('[Cart] add to server', props<{game: Game}>());
+export const updateTot =createAction('[Cart] update tot',props<{tot: number}>());

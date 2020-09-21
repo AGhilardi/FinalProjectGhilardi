@@ -3,6 +3,7 @@ import { createSelector } from '@ngrx/store';
 import { AppState } from '..';
 import { Params } from '@angular/router';
 import { selectRouteParams } from '../router';
+import { state } from '@angular/animations';
 
 export const selectCartState = (state: AppState) => state.cartState;
 export const selectCart = createSelector(
@@ -13,4 +14,8 @@ export const selectCart = createSelector(
 export const selectLastCart = createSelector(
     selectCartState,
     (state:CartState) => state.currentCart.length > 0 ? state.currentCart[state.currentCart.length-1] : null
+)
+export const selectTotal=createSelector(
+    selectCartState,
+    (state:CartState) => state.total
 )

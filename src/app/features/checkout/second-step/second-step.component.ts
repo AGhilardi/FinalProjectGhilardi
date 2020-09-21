@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { Store } from '@ngrx/store';
+import { from } from 'rxjs';
+import { initShipping } from 'src/app/redux/shipping/shipping.action';
+import { Shipping} from '../../../core/model/shipping.interface'
 @Component({
   selector: 'app-second-step',
   templateUrl: './second-step.component.html',
@@ -9,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class SecondStepComponent implements OnInit {
   shippingForm:FormGroup;
-  constructor(private fb: FormBuilder,private router:Router) {
+  constructor(private fb: FormBuilder,private router:Router,private store:Store) {
     this.shippingForm = this.fb.group({
       name: ['', Validators.required],
       surname:['', Validators.required],
@@ -18,13 +21,15 @@ export class SecondStepComponent implements OnInit {
       CAP:['', Validators.required],
       adress:['', Validators.required],
       number:['', Validators.required],
-      info:['', Validators.required],
+      info:[''],
     });
    }
 
   ngOnInit(): void {
   }
   next(){
-    this.router.navigateByUrl("checkout/3")
+    let shipping:Shipping=this.shippingForm.value;
+    this.store.dispatch(initShipping({shipping}));
+    this.router.navigateByUrl("/checkout/3")
   }
 }

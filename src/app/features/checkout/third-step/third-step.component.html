@@ -1,1 +1,24 @@
-<p>third-step works!</p>
+<a href="home"><img id="home" [src]="'../../assets/60817.svg'" alt="home"></a>
+<p>Games bought:{{cart.length}}</p>
+<p>total:{{total}}</p>
+<p>shipping:{{total/10}}</p>
+<p>adress:{{shipping.adress}}</p>
+<p>for:{{shipping.name}} {{shipping.surname}}</p>
+<form [formGroup]="payForm" (ngSubmit)="next() ">
+    <select id="card" formControlName="card">
+        <option value="card">card</option>
+        <option value="card">card</option>
+        <option value="card">card</option>
+        <option value="card">card</option>
+    </select>
+    <select id="provider" formControlName="provider">
+        <option value="visa">visa</option>
+        <option value="master">master</option>
+        <option value="mastercard">mastercard</option>
+        <option value="wu">wu</option>
+    </select>
+    <input formControlName="cardnumber" type="text" id="cardnumber" name="cardnumber" value="cardnumber">
+    <input formControlName="CVV" type="text" id="CVV" name="CVV" value="CVV">
+    <button tyoe="button" routerLink="/checkout">Back</button>
+    <button type="submit" [disabled]="payForm.invalid">Next</button>
+</form>
