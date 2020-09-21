@@ -1,5 +1,7 @@
-<app-game-preview *ngFor="let game of gamesList | async" [game]="game" (removeEvent)="removeFromCart(game)"></app-game-preview>
-
+<section>
+    <app-game-preview *ngFor="let game of cart | async" [game]="game" (removeEvent)="removeFromCart(game)"></app-game-preview>
+    <button routerLink="/checkout/1">checkout</button>
+</section>
 <ngb-carousel #carousel [interval]="1000" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)">
     <ng-template ngbSlide [id]="i" (onSlide)="image = img" *ngFor="let game of games; index as i">
         <div class="carousel-caption">

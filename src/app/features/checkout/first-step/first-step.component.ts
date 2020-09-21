@@ -1,0 +1,37 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { Game } from 'src/app/core/model/game.interface';
+import { selectCart } from 'src/app/redux/cart';
+import { removeFromCart } from 'src/app/redux/cart/cart.actions';
+
+@Component({
+  selector: 'app-first-step',
+  templateUrl: './first-step.component.html',
+  styleUrls: ['./first-step.component.scss']
+})
+export class FirstStepComponent implements OnInit {
+  cart:Game[];
+  rand:number[]=[];
+  totaltest:number=0;
+  
+  
+  i:number=-1;
+  constructor(private store :Store,) {
+    this.store.pipe(select(selectCart)).subscribe(cart=>this.cart=cart);
+    for (const i of this.cart) {
+      this.totaltest=this.totaltest+i.price
+    }
+   }
+
+  ngOnInit(): void {
+  }
+  removeFromCart(game:Game)
+  {
+    let id=game.id;
+    this.store.dispatch(removeFromCart({id}))
+  }
+  get total():number{
+    return this.totaltest;
+  };
+} 

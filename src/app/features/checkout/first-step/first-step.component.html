@@ -1,0 +1,15 @@
+<section *ngFor="let game of cart;index as i">
+    <img [src]="game.img" alt="game image">
+    <p>Titolo: {{game.title}}</p>
+    <p>edizone: {{game.edition}}</p>
+    <p *ngIf="game.seasonPass;else elseblock">season pass: si</p>
+    <ng-template #elseblock>
+        <p>season pass: no</p>
+    </ng-template>
+    <p>key receival method:{{game.key}}</p>
+    <button (click)="removeFromCart(game)">remove</button>
+    <p>prezzo:{{game.price}}</p>
+</section>
+<hr>
+<p>totale:{{total}}</p>
+<button routerLink="checkout/2">Next</button>

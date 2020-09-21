@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   imageSubmitEvent: EventEmitter<string[]> = new EventEmitter();
   @Output()
   idSubmitEvent: EventEmitter<number> = new EventEmitter();
-  get gamesList(): Observable<Game[]> {
+  get cart(): Observable<Game[]> {
     return this.store.pipe(select(selectCart));
   }
   get user(): Observable<string> {
@@ -83,4 +83,5 @@ export class HomeComponent implements OnInit {
     let id=game.id;
     this.store.dispatch(removeFromCart({id}))
   }
+
 }

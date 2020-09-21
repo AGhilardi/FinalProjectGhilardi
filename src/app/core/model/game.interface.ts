@@ -9,4 +9,5 @@ export interface Game {
     pass:boolean;
     key:string;
     gift:string;
+    price:number;
 }

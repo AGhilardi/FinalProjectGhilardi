@@ -60,7 +60,7 @@ export class CustomizeFormComponent implements OnInit{
 
 
   confirm() {
-    let game=this.gameForm.value;
+    let game:Game=this.gameForm.value;
     Object.assign(game,this.game);
     if (this.lastgame===null)
     {
@@ -71,7 +71,9 @@ export class CustomizeFormComponent implements OnInit{
       incrementalId++;
     game.id=incrementalId;
     }
-    console.log(game);
+    let min = Math.ceil(0);
+    let max = Math.floor(100);
+    game.price= Math.floor(Math.random() * (max - min + 1)) + min;
     this.store.dispatch(insertInCart({game}));
     this.router.navigateByUrl("home");
   }

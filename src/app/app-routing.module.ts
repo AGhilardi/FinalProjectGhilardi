@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./features/login/login.module').then(m => m.LoginModule), canLoad:[LoggedGuardService], canActivate:[LoggedGuardService] },
   { path: 'reg', loadChildren: () => import('./features/reg/reg.module').then(m => m.RegModule), canLoad:[LoggedGuardService], canActivate:[LoggedGuardService] },
   { path: 'home', loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule), canLoad: [LoginGuardService], canActivate: [LoginGuardService] },
+  { path: 'checkout/1', loadChildren: () => import('./features/checkout/checkout.module').then(m => m.CheckoutModule), canLoad: [LoginGuardService], canActivate: [LoginGuardService] },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 

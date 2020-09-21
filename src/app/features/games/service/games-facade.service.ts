@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class GamesFacadeService {
-  private game:Game={id:1,title:"",description:"",year:2,users:[],img:"",edition:"",pass:false,key:"",gift:""};
+  private game:Game={id:1,title:"",description:"",year:2,users:[],img:"",edition:"",pass:false,key:"",gift:"",price:22};
   private imgsrc= new BehaviorSubject('img here');
   private gamesrc=new BehaviorSubject(this.game);
   currentimg= this.imgsrc.asObservable();
