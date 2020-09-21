@@ -15,8 +15,8 @@ export class FirstStepComponent implements OnInit {
   cart:Game[];
   rand:number[]=[];
   totaltest:number=0;
-  
-  
+  from:number=0;
+  to:number=4;
   i:number=-1;
   constructor(private store :Store,private router:Router) {
     this.store.pipe(select(selectCart)).subscribe(cart=>this.cart=cart);
@@ -39,5 +39,13 @@ export class FirstStepComponent implements OnInit {
     let tot=this.totaltest;
     this.store.dispatch(updateTot({tot}));
     this.router.navigateByUrl('/checkout/2')
+  }
+  nextCartPage(){
+    this.from+=4;
+    this.to+=4;
+  }
+  prevCartPage(){
+    this.from-=4;
+    this.to-=4;
   }
 } 

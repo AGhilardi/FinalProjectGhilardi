@@ -19,14 +19,14 @@ export class HomeComponent implements OnInit {
   games:Game[] =[];
   id:number;
   image:string;
+  from:number=0;
+  to:number=2;
   currentSlide;
   @Output()
   imageSubmitEvent: EventEmitter<string[]> = new EventEmitter();
   @Output()
   idSubmitEvent: EventEmitter<number> = new EventEmitter();
-  get cart(): Observable<Game[]> {
-    return this.store.pipe(select(selectCart));
-  }
+  cart:Game[];
   get user(): Observable<string> {
     return this.store.pipe(
       select(getCurrentUser),
@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
     this.store.pipe(select(selectGames)).subscribe(games=>
       this.games = games
     )
-
+    this.store.pipe(select(selectCart)).subscribe(cart=>this.cart=cart);
     }
   ngOnInit(): void {
   }
@@ -84,4 +84,12 @@ export class HomeComponent implements OnInit {
     this.store.dispatch(removeFromCart({id}))
   }
 
+  nextCartPage(){
+    this.from+=2;
+    this.to+=2;
+  }
+  prevCartPage(){
+    this.from-=2;
+    this.to-=2;
+  }
 }

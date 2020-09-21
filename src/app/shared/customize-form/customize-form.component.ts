@@ -79,7 +79,7 @@ export class CustomizeFormComponent implements OnInit{
   }
 
   cancel() {
-    this.undoEvent.emit(this.gameForm.value);
+    this.router.navigateByUrl("home");
   }
 
 }

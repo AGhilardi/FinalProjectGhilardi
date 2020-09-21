@@ -1,5 +1,11 @@
 <a href="home"><img id="home" [src]="'../../assets/60817.svg'" alt="home"></a>
-<section *ngFor="let game of cart;index as i">
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link"><button class="pagerbutton" (click)="prevCartPage()" [disabled]="from<=0 ">previous</button></a></li>
+        <li class="page-item"><a class="page-link"><button class="pagerbutton" (click)="nextCartPage()" [disabled]="to>=cart.length">next</button></a></li>
+    </ul>
+</nav>
+<section *ngFor="let game of cart | slice : from : to;index as i">
     <img [src]="game.img" alt="game image">
     <p>Titolo: {{game.title}}</p>
     <p>edizone: {{game.edition}}</p>
