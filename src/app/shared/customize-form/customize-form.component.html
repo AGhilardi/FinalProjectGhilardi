@@ -1,26 +1,30 @@
-<img [src]="img | async" alt="img">
-<form [formGroup]="gameForm" (ngSubmit)="confirm() ">
-    <div>
-        <label for="edition">edition</label>
-        <select id="edition" formControlName="edition">
-            <option value="default">default</option>
-            <option value="goty">goty</option>
-            <option value="gold">gold</option>
-            <option value="deluxe">deluxe</option>
+<div class="flexing">
+    <img [src]="img | async" alt="img">
+    <div class="form">
+        <form [formGroup]="gameForm" (ngSubmit)="confirm() ">
+            <div class="select">
+                <label class="selecttextcolor" for="edition">edition</label>
+                <select class="selecttextcolor" id="edition" formControlName="edition">
+            <option class="selecttextcolor" value="default">default</option>
+            <option class="selecttextcolor" value="goty">goty</option>
+            <option class="selecttextcolor" value="gold">gold</option>
+            <option class="selecttextcolor" value="deluxe">deluxe</option>
         </select>
-    </div>
-    <div>
-        <input formControlName="seasonPass" type="checkbox" id="seasonpass" name="seasonpass" value="seasonpass">
-        <label for="seasonpass"> season pass</label>
-    </div>
-    <p>Where would you like to recieve your key?<br>
+            </div>
+            <div>
+                <input formControlName="seasonPass" type="checkbox" id="seasonpass" name="seasonpass" value="seasonpass">
+                <label for="seasonpass"> season pass</label>
+            </div>
+            <p>Where would you like to recieve your key?<br>
 
-        <input formControlName="keypass" type="radio" id="email" name="keypass" value="email">
-        <label for="email">email  </label>
-        <input formControlName="keypass" type="radio" id="instant" name="keypass" value="instant">
-        <label for="instant">our site</label>
-    </p>
-    <app-input-text formControlName="gift" [label]="'Is it a gift for someone? Enter their email!'"></app-input-text>
-    <button (click)="cancel()">Annulla</button>
-    <button type="submit" [disabled]="gameForm.invalid">Conferma</button>
-</form>
+                <input formControlName="keypass" type="radio" id="email" name="keypass" value="email">
+                <label for="email">email  </label>
+                <input formControlName="keypass" type="radio" id="instant" name="keypass" value="instant">
+                <label for="instant">our site</label>
+            </p>
+            <app-input-text formControlName="gift" [label]="'Is it a gift for someone? Enter their email!'"></app-input-text>
+            <button class="myButton" (click)="cancel()">Annulla</button>
+            <button class="myButton" type="submit" [disabled]="gameForm.invalid">Conferma</button>
+        </form>
+    </div>
+</div>

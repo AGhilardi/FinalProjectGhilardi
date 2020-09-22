@@ -6,7 +6,6 @@ import { map, filter, toArray, switchMap, tap } from 'rxjs/operators';
 import {  selectCart } from 'src/app/redux/cart/index';
 import { selectGames } from 'src/app/redux/games';
 import { getCurrentUser } from 'src/app/redux/users';
-import { retrieveAllGames } from 'src/app/redux/games/games.actions';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 import { GamesFacadeService } from "../../../games/service/games-facade.service";
 import { removeFromCart } from 'src/app/redux/cart/cart.actions';
