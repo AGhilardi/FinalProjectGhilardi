@@ -2,3 +2,40 @@
     width: 3%;
     height: auto;
 }
+
+.myButton {
+    box-shadow: inset 0px 1px 0px 0px #f5978e;
+    background: linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+    background-color: #f24537;
+    border-radius: 6px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #810e05;
+}
+
+.myButton:hover {
+    background: linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+    background-color: #c62d1f;
+}
+
+.myButton:active {
+    position: relative;
+    top: 1px;
+}
+
+.myButton:disabled {
+    background: rgb(196, 172, 183);
+    background: linear-gradient(90deg, rgba(196, 172, 183, 1) 0%, rgba(59, 64, 71, 1) 100%);
+}
+
+.position {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

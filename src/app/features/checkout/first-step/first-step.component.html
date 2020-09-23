@@ -1,22 +1,26 @@
-<a href="home"><img id="home" [src]="'../../assets/60817.svg'" alt="home"></a>
-<nav aria-label="Page navigation example">
-    <ul class="pagination">
-        <li class="page-item"><a class="page-link"><button class="pagerbutton" (click)="prevCartPage()" [disabled]="from<=0 ">previous</button></a></li>
-        <li class="page-item"><a class="page-link"><button class="pagerbutton" (click)="nextCartPage()" [disabled]="to>=cart.length">next</button></a></li>
-    </ul>
-</nav>
-<section *ngFor="let game of cart | slice : from : to;index as i">
-    <img [src]="game.img" alt="game image">
-    <p>Titolo: {{game.title}}</p>
-    <p>edizone: {{game.edition}}</p>
-    <p *ngIf="game.seasonPass;else elseblock">season pass: si</p>
-    <ng-template #elseblock>
-        <p>season pass: no</p>
-    </ng-template>
-    <p>key receival method:{{game.key}}</p>
-    <button (click)="removeFromCart(game)">remove</button>
-    <p>prezzo:{{game.price}}</p>
-</section>
-<hr>
-<p>totale:{{total}}</p>
-<button (click)="next()">Next</button>
+<div class="flexing">
+    <a href="home"><img id="home" [src]="'../../assets/60817.svg'" alt="home"></a>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link"><button class="pagerbutton" (click)="prevCartPage()" [disabled]="from<=0 ">previous</button></a></li>
+            <li class="page-item"><a class="page-link"><button class="pagerbutton" (click)="nextCartPage()" [disabled]="to>=cart.length">next</button></a></li>
+        </ul>
+    </nav>
+    <section class="itemdesc" *ngFor="let game of cart | slice : from : to;index as i">
+        <img class="itemimg" [src]="game.img" alt="game image">
+        <div class="itemlist">
+            <p>Titolo: {{game.title}}</p>
+            <p>edizone: {{game.edition}}</p>
+            <p *ngIf="game.seasonPass;else elseblock">season pass: si</p>
+            <ng-template #elseblock>
+                <p>season pass: no</p>
+            </ng-template>
+            <p>key receival method:{{game.key}}</p>
+            <button class="myButton" (click)="removeFromCart(game)">remove</button>
+            <p>prezzo:{{game.price}}</p>
+        </div>
+    </section>
+    <hr>
+    <p class="left">totale:{{total}}</p>
+</div>
+<button class="myButton" (click)="next()">Next</button>

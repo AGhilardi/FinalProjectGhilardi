@@ -1,13 +1,15 @@
 <a href="home"><img id="home" [src]="'../../assets/60817.svg'" alt="home"></a>
-<form [formGroup]="shippingForm" (ngSubmit)="next() ">
-    <app-input-text formControlName="name" [label]="'name'" class="username-input"></app-input-text>
-    <app-input-text formControlName="surname" [label]="'surname'" class="username-input"></app-input-text>
-    <app-input-text formControlName="cell" [label]="'phone number'" class="username-input"></app-input-text>
-    <app-input-text formControlName="city" [label]="'city'" class="username-input"></app-input-text>
-    <app-input-text formControlName="CAP" [label]="'CAP'" class="username-input"></app-input-text>
-    <app-input-text formControlName="adress" [label]="'adress'" class="username-input"></app-input-text>
-    <app-input-text formControlName="number" [label]="'number'"></app-input-text>
-    <app-input-text formControlName="info" [label]="'info per corriere'" class="username-input"></app-input-text>
-    <button tyoe="button" routerLink="/checkout">Back</button>
-    <button type="submit" [disabled]="shippingForm.invalid">Next</button>
+<form class="form" [formGroup]="shippingForm" (ngSubmit)="next() ">
+    <div class="itemsdiv">
+        <app-input-text formControlName="name" [label]="'name'" class="username-input"></app-input-text>
+        <app-input-text formControlName="surname" [label]="'surname'" class="username-input"></app-input-text>
+        <app-input-text formControlName="cell" [label]="'phone number'" class="username-input"></app-input-text>
+        <app-input-text formControlName="city" [label]="'city'" class="username-input"></app-input-text>
+        <app-input-text formControlName="CAP" [label]="'CAP'" class="username-input"></app-input-text>
+        <app-input-text formControlName="adress" [label]="'adress'" class="username-input"></app-input-text>
+        <app-input-text formControlName="number" [label]="'number'"></app-input-text>
+        <app-input-text formControlName="info" [label]="'info per corriere'" class="username-input"></app-input-text>
+        <button class="myButton" tyoe="button" routerLink="/checkout">Back</button>
+        <button class="myButton" type="submit" [disabled]="shippingForm.invalid">Next</button>
+    </div>
 </form>

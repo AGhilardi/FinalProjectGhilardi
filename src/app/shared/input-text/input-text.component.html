@@ -1,5 +1,5 @@
-<div>
-    <label for="input">{{label}}</label>
-    <input #inputRef id="input" [value]="inputValue" (input)="setInputValue(inputRef.value)"
-    (blur)="onTouched()">
+<div class="mdc-text-field">
+    <label class="mdc-floating-label" for="input">{{label}}</label>
+    <div class="mdc-line-ripple"></div>
+    <input #inputRef id="input" class="mdc-text-field__input" [value]="inputValue" (input)="setInputValue(inputRef.value)" (blur)="onTouched()">
 </div>

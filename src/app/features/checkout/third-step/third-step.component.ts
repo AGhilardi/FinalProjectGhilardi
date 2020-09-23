@@ -29,7 +29,7 @@ export class ThirdStepComponent implements OnInit {
     this.payForm = this.fb.group({
       card: ['', Validators.required],
       provider:['', Validators.required],
-      cardnumber: ['', Validators.required],
+      cardnumber: ['', [Validators.minLength(12),Validators.required]],
       CVV: ['',Validators.required],
     });
    }
