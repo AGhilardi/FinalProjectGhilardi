@@ -38,6 +38,7 @@ export class ThirdStepComponent implements OnInit {
   
   }
   next(){
+    alert("checkout successful");
     const msg = "test";
     let email = this.payForm.value;
     Object.defineProperty(email,"items",{value:this.cart.length.toString});
