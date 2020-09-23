@@ -4,7 +4,7 @@
 <p>shipping:{{total/10}}</p>
 <p>adress:{{shipping.adress}}</p>
 <p>for:{{shipping.name}} {{shipping.surname}}</p>
-<form [formGroup]="payForm" (ngSubmit)="next() ">
+<form [formGroup]="payForm" method="POST" (ngSubmit)="next() ">
     <select id="card" formControlName="card">
         <option value="card">card</option>
         <option value="card">card</option>

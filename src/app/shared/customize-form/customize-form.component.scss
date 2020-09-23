@@ -252,7 +252,6 @@ html {
     background: linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
     background-color: #f24537;
     border-radius: 6px;
-    border: 1px solid #d02718;
     display: inline-block;
     cursor: pointer;
     color: #ffffff;
@@ -272,4 +271,9 @@ html {
 .myButton:active {
     position: relative;
     top: 1px;
+}
+
+.myButton:disabled {
+    background: rgb(196, 172, 183);
+    background: linear-gradient(90deg, rgba(196, 172, 183, 1) 0%, rgba(59, 64, 71, 1) 100%);
 }
